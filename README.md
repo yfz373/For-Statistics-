@@ -1,703 +1,409 @@
-Alright — let’s go through **Exercise 08 2025.pdf** step-by-step, one question at a time, in simple note form.
+# 📘 Statistics Exercises – Step-by-Step Solutions
+
+Here are detailed solutions for all the exercises from the provided PDFs, explained in a simple, step-by-step manner suitable for exam preparation.
 
 ---
 
-## **Question 1 – Box Plot**
+## 📄 Exercise 08 2025.pdf
 
-**Dataset:**  
-45, 50, 52, 55, 60, 62, 65, 68, 70, 72, 75, 80  
+### 1. Box Plot for Quiz Scores
+**Dataset:** 45, 50, 52, 55, 60, 62, 65, 68, 70, 72, 75, 80
 
-**Step 1: Five-number summary**  
-- **Min** = 45  
-- **Q1** (25th percentile)  
-  Data size \(n = 12\) → Q1 is the median of the lower half (first 6 numbers):  
-  Lower half: 45, 50, 52, 55, 60, 62  
-  Median of that: average of 3rd and 4th → \((52+55)/2 = 53.5\)  
+#### a. Five-Number Summary
+1. **Sort the data:** Already sorted.
+2. **Minimum:** 45
+3. **Q1 (25th percentile):**  
+   - Lower half (first 6 numbers): 45, 50, 52, 55, 60, 62  
+   - Q1 = average of 3rd and 4th: (52 + 55) / 2 = **53.5**
+4. **Median (Q2, 50th percentile):**  
+   - Average of 6th and 7th: (62 + 65) / 2 = **63.5**
+5. **Q3 (75th percentile):**  
+   - Upper half (last 6 numbers): 65, 68, 70, 72, 75, 80  
+   - Q3 = average of 3rd and 4th: (70 + 72) / 2 = **71**
+6. **Maximum:** 80
 
-- **Q2** (Median)  
-  Average of 6th and 7th numbers: \((62+65)/2 = 63.5\)  
+**Five-number summary:** Min = 45, Q1 = 53.5, Median = 63.5, Q3 = 71, Max = 80
 
-- **Q3**  
-  Upper half (last 6 numbers): 65, 68, 70, 72, 75, 80  
-  Median: average of 3rd and 4th in this half → \((70+72)/2 = 71\)  
-
-- **Max** = 80  
-
-**Five-number summary:**  
-Min = 45, Q1 = 53.5, Q2 = 63.5, Q3 = 71, Max = 80  
-
----
-
-**Step 2: Box plot with whiskers**  
-- **IQR** = Q3 – Q1 = \(71 - 53.5 = 17.5\)  
-- **Step** = \(1.5 \times \text{IQR} = 26.25\)  
-
-**Whiskers:**  
-Lower whisker bound = \(Q1 - 26.25 = 27.25\) → smallest data point ≥ 27.25 is **45** (no lower outliers)  
-Upper whisker bound = \(Q3 + 26.25 = 97.25\) → largest data point ≤ 97.25 is **80** (no upper outliers)  
-
-**Outliers:**  
-Any data below 27.25 or above 97.25 → none here.  
-
-**Box plot:**  
-Box from 53.5 to 71, median line at 63.5, whiskers to 45 and 80.
+#### b. Box Plot with Whiskers
+1. **IQR = Q3 – Q1 =** 71 – 53.5 = 17.5
+2. **Step = 1.5 × IQR =** 1.5 × 17.5 = 26.25
+3. **Lower fence = Q1 – Step =** 53.5 – 26.25 = 27.25
+4. **Upper fence = Q3 + Step =** 71 + 26.25 = 97.25
+5. **Whiskers:**
+   - Lower whisker: smallest value ≥ lower fence → 45
+   - Upper whisker: largest value ≤ upper fence → 80
+6. **Outliers:** None (all data within fences).
 
 ---
 
-## **Question 2 – Ordered selections**  
+### 2. Arranging Students for Presentation
+**Choose and arrange 4 out of 10 students in order.**
 
-10 students, choose 4 and arrange them in order.  
+- Use **permutations** because order matters.
+- Formula: \( P(10,4) = \frac{10!}{(10-4)!} \)
+- \( 10! / 6! = 10 × 9 × 8 × 7 = 5040 \)
 
-This is a **permutation** problem:  
-\[
-P(10,4) = \frac{10!}{(10-4)!} = 10 \times 9 \times 8 \times 7
-\]
-\[
-= 5040
-\]
-
-**Answer:** 5040 different ordered presentation lines.
+**Answer:** 5040 possible ordered lines.
 
 ---
 
-## **Question 3 – Two-way ANOVA**  
+### 3. Two-Way ANOVA
+**Factors:** Training Program (A1, A2) × Practice Duration (B1–B4)  
+**n = 3 per combination**, α = 0.05
 
-Factor A: Training Program (A1=Standard, A2=Intensive)  
-Factor B: Practice Duration (B1=1h, B2=2h, B3=3h, B4=4h)  
-Each cell: \(n=3\) employees.
-
-Data table given.
-
-**General steps for two-way ANOVA:**  
-1. **Calculate means for each combination** (cell means) and **row means** (A1, A2) and **column means** (B1–B4).  
-2. **Calculate overall mean** (average of all scores).  
-3. **Calculate sums of squares:**  
-   - \(SS_A\): Variation between A1 and A2  
-   - \(SS_B\): Variation between B1–B4  
-   - \(SS_{AB}\): Interaction effect  
-   - \(SS_{within}\) (error): Variation within each cell (since \(n=3\))  
-   - \(SS_{total}\) = \(SS_A + SS_B + SS_{AB} + SS_{within}\)  
-
-4. **Degrees of freedom:**  
-   \(df_A = a-1 = 1\) (a=2 levels of A)  
-   \(df_B = b-1 = 3\) (b=4 levels of B)  
-   \(df_{AB} = (a-1)(b-1) = 3\)  
-   \(df_{within} = ab(n-1) = 2\times4\times 2 = 16\)  
-   \(df_{total} = abn - 1 = 24 - 1 = 23\)  
-
-5. **Mean squares:** \(MS = SS/df\)  
-6. **F statistics:**  
-   \(F_A = MS_A / MS_{within}\)  
-   \(F_B = MS_B / MS_{within}\)  
-   \(F_{AB} = MS_{AB} / MS_{within}\)  
-
-7. **Compare each F to critical F** from tables (\(df_{numerator}, df_{denominator=16}\)) at α=0.05, or check p-value < 0.05.
+#### Steps:
+1. **Hypotheses:**
+   - H0 (Training): No difference between Standard and Intensive.
+   - H0 (Practice): No difference between practice durations.
+   - H0 (Interaction): No interaction between training and practice.
+2. **Calculate means for each combination.**
+3. **Compute:**
+   - **SS Total** (total variation)
+   - **SS Training** (between training types)
+   - **SS Practice** (between practice durations)
+   - **SS Interaction** (combined effect)
+   - **SS Within** (error)
+4. **Degrees of Freedom:**
+   - df Training = 1
+   - df Practice = 3
+   - df Interaction = 3
+   - df Within = (2 × 4 × (3-1)) = 16
+5. **Mean Squares = SS / df**
+6. **F = MS Factor / MS Within**
+7. **Compare F to F-critical or p-value to α.**
+8. **Conclusion:**  
+   - If p < 0.05 → significant effect.
 
 ---
 
-Given data: you can compute cell means:  
-e.g., A1B1 = (60+62+58)/3 = 60, A2B1 = 65, etc.  
+### 4. 99% Confidence Interval for Delivery Time
+**Given:**  
+- Sample mean \( \bar{x} = 48 \)  
+- Population SD \( \sigma = 6 \)  
+- Sample size \( n = 36 \)  
+- Confidence level = 99%
 
-But since you want notes for exam, remember **steps for two-way ANOVA**:  
-- Check for interaction first (plot cell means—parallel lines suggest no interaction).  
-- If no interaction, interpret main effects.  
-- If significant interaction, compare simple effects.  
+#### Steps:
+1. **Find z* for 99% CI:** z* ≈ 2.576
+2. **Margin of Error (ME):**  
+   \( ME = z* × \frac{\sigma}{\sqrt{n}} \)  
+   \( = 2.576 × \frac{6}{\sqrt{36}} \)  
+   \( = 2.576 × 1 = 2.576 \)
+3. **CI:**  
+   \( \bar{x} \pm ME = 48 \pm 2.576 \)  
+   \( = (45.424, 50.576) \)
 
-**Exam tip:** They might give partial ANOVA table to fill in.
-
----
-
-**Quick check from data** (visually): Intensive seems higher than Standard, and longer practice seems higher scores. Interaction? Possibly small.
-
-I won’t compute full ANOVA here due to time, but in exam:  
-You’d compute:  
-\(SS_{within}\) = variance inside each cell × \(n-1\) for each cell, sum up.  
-\(SS_A\): \(n \times b \times \sum (\text{row mean} - \text{grand mean})^2\) = \(12 \times \text{(difference in row means squared)}\).
-
----
-
-## **Question 4 – Confidence Interval**  
-
-Given: \(n=36\), \(\bar{x} = 48\), \(\sigma = 6\), 99% CI.  
-
-Population σ known → use z* for 99% CI ≈ 2.576.  
-
-\[
-\text{CI} = \bar{x} \pm z^* \frac{\sigma}{\sqrt{n}}
-\]
-\[
-= 48 \pm 2.576 \times \frac{6}{\sqrt{36}}
-\]
-\[
-= 48 \pm 2.576 \times 1
-\]
-\[
-= 48 \pm 2.576
-\]
-\[
-= (45.424,\; 50.576)
-\]
+**Answer:** (45.42, 50.58) minutes.
 
 ---
 
-## **Question 5 – Chi-square independence**  
+### 5. Chi-Square Test for Independence
+**Data:**  
+| Gender | Online | Face-to-Face | Total |
+|--------|--------|--------------|-------|
+| Male   | 35     | 25           | 60    |
+| Female | 20     | 40           | 60    |
+| Total  | 55     | 65           | 120   |
+
+**Test at α = 0.05**
+
+#### Steps:
+1. **Hypotheses:**
+   - H0: Gender and preference are independent.
+   - H1: They are associated.
+2. **Expected frequencies:**  
+   \( E_{ij} = \frac{(RowTotal × ColTotal)}{GrandTotal} \)  
+   Example: Male Online = (60 × 55) / 120 = 27.5  
+   (Calculate for all cells)
+3. **Chi-square statistic:**  
+   \( \chi^2 = \sum \frac{(O-E)^2}{E} \)
+4. **df = (rows-1)(cols-1) = (2-1)(2-1) = 1**
+5. **Critical value at α=0.05, df=1:** 3.841
+6. **Compare:**  
+   If \( \chi^2 \) > 3.841 → reject H0.
+7. **Conclusion:**  
+   There is/is not significant association.
+
+---
+
+## 📄 Exercise 02 - Answers (1).pdf
+
+### 1. Trimean Calculation
+**Dataset:** 10, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 50
+
+#### Steps:
+1. **Sorted:** Yes.
+2. **Median (Q2):** 8th value = 30
+3. **Q1:** Median of lower half (first 7) = 4th value = 18
+4. **Q3:** Median of upper half (last 7) = 4th value = 42
+5. **Trimean =** \( \frac{Q1 + 2×Median + Q3}{4} \)  
+   \( = \frac{18 + 60 + 42}{4} = \frac{120}{4} = 30 \)
+
+**Answer:** 30
+
+---
+
+### 2. Geometric Mean of Growth Rates
+**Rates:** +5%, +10%, –3%, +6%
+
+#### Steps:
+1. **Convert to growth factors:**  
+   1.05, 1.10, 0.97, 1.06
+2. **Product:** 1.05 × 1.10 × 0.97 × 1.06 ≈ 1.181841
+3. **Geometric mean =** \( \sqrt[4]{1.181841} ≈ 1.0426 \)
+4. **Convert back to %:** (1.0426 – 1) × 100 = 4.26%
+
+**Answer:** Average growth rate = 4.26% per year.
+
+---
+
+### 3. 10% Trimmed Mean
+**Scores:** 65, 70, 72, 75, 80, 85, 90, 92, 95, 100
+
+#### Steps:
+1. **Sorted:** Yes.
+2. **Trim 10% from each end:** Remove 1 smallest (65) and 1 largest (100).
+3. **Remaining:** 70, 72, 75, 80, 85, 90, 92, 95
+4. **Mean =** Sum / 8 = 659 / 8 = 82.375
+
+**Answer:** 82.375
+
+---
+
+## 📄 Exercise 01 - Answers (1).pdf
+
+### 1. Stem-and-Leaf Display
+**Data:** 62, 65, 68, 70, 73, 75, 75, 78, 81, 83, 84, 85, 87, 89, 92, 95, 96, 98, 100
+
+- Stem = tens digit, leaf = units digit
+- Example: 6 | 2 5 8  
+  7 | 0 3 5 5 8  
+  8 | 1 3 4 5 7 9  
+  9 | 2 5 6 8  
+  10 | 0
+
+---
+
+### 2. Box Plot for Test Scores
+**Data:** 55, 60, 62, 63, 65, 66, 68, 70, 72, 75, 77, 78, 80, 85, 88
+
+#### a. Five-Number Summary:
+- Min = 55
+- Q1 = 63 (between 4th and 5th)
+- Median = 70 (8th value)
+- Q3 = 78 (between 11th and 12th)
+- Max = 88
+
+#### b. Box Plot:
+- IQR = 78 – 63 = 15
+- Step = 1.5 × 15 = 22.5
+- Lower fence = 63 – 22.5 = 40.5
+- Upper fence = 78 + 22.5 = 100.5
+- Whiskers: 55 to 88
+- No outliers.
+
+---
+
+## 📄 Exercise 7 - Answers.pdf
+
+### 1. One-Way ANOVA for Fertilizers
+**Data:** Fertilizer A, B, C heights
+
+#### Steps:
+1. **H0:** μA = μB = μC  
+   **H1:** At least one different.
+2. **Group means:** A=15.4, B=20.4, C=26.0
+3. **Grand mean:** 20.6
+4. **SS Between, SS Within, SS Total**
+5. **df Between = 2, df Within = 12**
+6. **MS = SS / df**
+7. **F = MS Between / MS Within**
+8. **Compare to F-critical (3.89) or p-value**
+9. **Conclusion:** Reject H0 if F > 3.89 or p < 0.05.
+
+---
+
+### 2. Chi-Square Test of Independence
+**Data:** Plant type vs Fertilizer preference
+
+#### Steps:
+1. **H0:** Independent, **H1:** Associated.
+2. **Expected frequencies** for each cell.
+3. **Chi-square =** Σ[(O-E)² / E]
+4. **df = (rows-1)(cols-1) = 4**
+5. **Critical χ² at α=0.05, df=4 = 9.488**
+6. **Compare:** If χ² > 9.488 → reject H0.
 
-**Observed table:**  
+---
+
+### 3. Two-Way ANOVA for Programming & Study Method
+**Data:** Python, Java, C++ × Self-Study, Instructor-Led
+
+#### Steps:
+1. **H0 for Language, Study Method, Interaction.**
+2. **Compute means for each group.**
+3. **SS Total, SS Language, SS Study, SS Interaction, SS Within.**
+4. **df Language=2, df Study=1, df Interaction=2, df Within=12.**
+5. **F = MS Factor / MS Within**
+6. **Compare p-values to α=0.05.**
+7. **Conclusion:** Language and Study Method are significant, Interaction is not.
+
+---
+
+## 📄 Exercise 6 - Answers.pdf
+
+### 1. Regression: Hours vs Exam Score
+**Data:** Hours(X) and Score(Y)
+
+#### Steps:
+1. **Compute:** ΣX, ΣY, ΣXY, ΣX², n=10
+2. **Slope b =** \( \frac{nΣXY - ΣXΣY}{nΣX² - (ΣX)²} \)
+3. **Intercept a =** \( \frac{ΣY - bΣX}{n} \)
+4. **Equation:** Y' = bX + a
+5. **Predict for X=7 and X=11.**
 
-| Gender | Online | Face-to-Face | Total |  
-|--------|--------|--------------|-------|  
-| Male   | 35     | 25           | 60    |  
-| Female | 20     | 40           | 60    |  
-| Total  | 55     | 65           | 120   |  
+---
 
-**Step 1: Hypotheses**  
-\(H_0\): Gender and learning preference are independent.  
-\(H_1\): They are associated.
+### 2. Regression: Height vs Weight
+**Data:** Height(X) and Weight(Y) for 5 people
 
-**Step 2: Expected frequencies**  
-\[
-E_{ij} = \frac{\text{Row total} \times \text{Column total}}{\text{Grand total}}
-\]
+#### Steps:
+1. **Compute:** ΣX=320, ΣY=770, ΣXY=49390, ΣX²=20520, n=5
+2. **b =** \( \frac{nΣXY - ΣXΣY}{nΣX² - (ΣX)²} = 2.75 \)
+3. **a =** \( \frac{ΣY - bΣX}{n} = -22 \)
+4. **Equation:** Y' = 2.75X – 22
+5. **Predict for X=70:** Y' = 170.5 lbs.
 
-Male-Online: \(60 \times 55 / 120 = 27.5\)  
-Male-F2F: \(60 \times 65 / 120 = 32.5\)  
-Female-Online: \(60 \times 55 / 120 = 27.5\)  
-Female-F2F: \(60 \times 65 / 120 = 32.5\)
+---
 
-**Step 3: Chi-square statistic**  
-\[
-\chi^2 = \sum \frac{(O-E)^2}{E}
-\]
+## 📄 Exercise 05 - Answers.pdf
 
-Male-Online: \((35-27.5)^2 / 27.5 = 7.5^2 / 27.5 ≈ 2.045\)  
-Male-F2F: \((25-32.5)^2 / 32.5 = (-7.5)^2 / 32.5 ≈ 1.731\)  
-Female-Online: \((20-27.5)^2 / 27.5 ≈ 2.045\)  
-Female-F2F: \((40-32.5)^2 / 32.5 ≈ 1.731\)
+### 1. One-Sample t-Test for Light Bulbs
+**Data:** 10 bulb lifespans, μ₀=1000, α=0.05
 
-Sum: \(2.045+1.731+2.045+1.731 ≈ 7.552\)
+#### Steps:
+1. **H0:** μ = 1000, **H1:** μ ≠ 1000
+2. **Sample mean =** 990.5, SD ≈ 25.87
+3. **t =** \( \frac{990.5 - 1000}{25.87 / √10} ≈ -1.16 \)
+4. **df = 9, critical t = ±2.262**
+5. **Since -1.16 is within [-2.262, 2.262] → fail to reject H0.**
 
-**Step 4: df = (rows-1)(cols-1) = (2-1)(2-1) = 1**  
+---
 
-Critical χ² at α=0.05, df=1 is **3.841**.  
-Our 7.552 > 3.841 → reject H0.
+### 2. Paired t-Test for Weight Loss
+**Data:** Before and After weights for 8 clients
 
+#### Steps:
+1. **H0:** μd = 0, **H1:** μd < 0
+2. **Mean difference \( \bar{d} = -3.125 \)**
+3. **SD of differences ≈ 0.835**
+4. **t =** \( \frac{-3.125}{0.835 / √8} ≈ -10.59 \)
+5. **df = 7, critical t (one-tailed) = -1.895**
+6. **Since -10.59 < -1.895 → reject H0.**
+7. **Conclusion:** Program significantly reduced weight.
 
-Exercise 02 – Answers.pdf
-Trimean
+---
 
-Formula: 
-(
-Q
-1
-+
-2
-×
-Median
-+
-Q
-3
-)
-/
-4
-(Q1+2×Median+Q3)/4.
+### 3. Independent t-Test for Diet Plans
+**Data:** Group A (New) vs Group B (Standard)
 
-Steps:
+#### Steps:
+1. **H0:** μA = μB, **H1:** μA > μB
+2. **t =** \( \frac{8-6}{√(4/25 + 6.25/25)} ≈ 3.13 \)
+3. **df = 48, critical t (one-tailed) = 1.679**
+4. **Since 3.13 > 1.679 → reject H0.**
+5. **Conclusion:** New diet leads to greater weight loss.
 
-Find median (middle value).
+---
 
-Q1 = median of lower half (exclude overall median if n odd).
+## 📄 Exercise 04 - Answers.pdf
 
-Q3 = median of upper half.
+### 1. Standard Deviation of Quiz Scores
+**Data:** 70, 85, 78, 90, 88
 
-Plug into formula.
+#### Steps:
+1. **Mean =** (70+85+78+90+88)/5 = 82.2
+2. **Deviations:** -12.2, 2.8, -4.2, 7.8, 5.8
+3. **Squared deviations:** 148.84, 7.84, 17.64, 60.84, 33.64
+4. **Variance =** Sum / 5 = 53.76
+5. **SD = √53.76 ≈ 7.33**
 
-Geometric Mean of Growth Rates
+---
 
-Convert % to growth factors: +5% → 1.05, –3% → 0.97, etc.
+### 2. Normal Approximation to Binomial
+**Problem:** n=100, p=0.3, find P(X<25)
 
-Multiply all factors.
+#### Steps:
+1. **μ = np = 30, σ = √(npq) = √21 ≈ 4.58**
+2. **Continuity correction:** P(X < 25) → P(X ≤ 24.5)
+3. **z =** (24.5 – 30) / 4.58 ≈ -1.20
+4. **P(Z < -1.20) ≈ 0.1151**
+5. **Answer:** 11.51%
 
-Take nth root (n = number of years).
+---
 
-Convert back to %: GM – 1.
+### 3. Binomial Probability with Normal Approximation
+**Problem:** n=100, p=0.4, find P(X ≥ 45)
 
-Trimmed Mean
+#### Steps:
+1. **μ = 40, σ = √24 ≈ 4.9**
+2. **Continuity correction:** P(X ≥ 45) → P(X ≥ 44.5)
+3. **z =** (44.5 – 40) / 4.9 ≈ 0.92
+4. **P(Z ≥ 0.92) = 1 – 0.8212 = 0.1788**
+5. **Answer:** 17.88%
 
-Remove k% from both ends of sorted data.
+---
 
-For 10% trimmed mean with n=10: remove 1 smallest and 1 largest.
+## 📄 Exercise 03 - Answers.pdf
 
-Mean of remaining values.
+### 1. Permutations for Photo Arrangement
+**n=8, choose r=4 in order**
 
-📘 Exercise 01 – Answers.pdf
-Stem-and-Leaf Plot
+- \( P(8,4) = 8! / 4! = 1680 \) ways.
 
-Stem = tens digit, leaf = units digit.
+---
 
-Sorted leaves for each stem.
+### 2. Combinations for Book Selection
+**n=7, choose r=4 (order doesn’t matter)**
 
-Box Plot (another example)
+- \( C(7,4) = 7! / (4!3!) = 35 \) ways.
 
-Same five-number summary method.
+---
 
-Whiskers: extend to min and max within [Q1–1.5×IQR, Q3+1.5×IQR].
-
-Points outside are outliers.
-
-📘 Exercise 7 – Answers.pdf
-One-way ANOVA
-
-H0: μ1 = μ2 = μ3.
-
-H1: at least one different.
-
-Steps:
-
-Overall mean 
-X
-ˉ
-X
-ˉ
- .
-
-SS_total = sum (each – 
-X
-ˉ
-X
-ˉ
- )².
-
-SS_between = 
-n
-i
-×
-∑
-(
-group mean–
-X
-ˉ
-)
-2
-n 
-i
-​
- ×∑(group mean– 
-X
-ˉ
- ) 
-2
- .
-
-SS_within = SS_total – SS_between.
-
-df_between = k–1, df_within = N–k.
-
-F = MS_between / MS_within.
-
-Compare to F-critical.
-
-Chi-square independence
-
-Same as earlier: expected frequencies, χ² formula.
-
-df = (r–1)(c–1).
-
-Two-way ANOVA (again)
-
-Same steps as in Exercise 08.
-
-Check interaction first: if interaction not significant, interpret main effects.
-
-📘 Exercise 6 – Answers.pdf
-Regression Equation
-
-Y
-′
-=
-b
-X
-+
-a
-Y 
-′
- =bX+a.
-
-b
-=
-n
-∑
-X
-Y
-–
-(
-∑
-X
-)
-(
-∑
-Y
-)
-n
-∑
-X
-2
-–
-(
-∑
-X
-)
-2
-b= 
-n∑X 
-2
- –(∑X) 
-2
- 
-n∑XY–(∑X)(∑Y)
-​
- .
-
-a
-=
-Y
-ˉ
-–
-b
-X
-ˉ
-a= 
-Y
-ˉ
- –b 
-X
-ˉ
- .
-
-Predict: plug X into equation.
-
-Another regression example
-
-Same formulas.
-
-Predict Y for given X.
-
-📘 Exercise 05 – Answers.pdf
-One-sample t-test
-
-H0: μ = μ0.
-
-t
-=
-x
-ˉ
-–
-μ
-0
-s
-/
-n
-t= 
-s/ 
-n
-​
- 
-x
-ˉ
- –μ 
-0
-​
- 
-​
- .
-
-df = n–1.
-
-Compare |t| to t-critical (two-tailed).
-
-Paired t-test
-
-H0: μ_d = 0.
-
-Find differences d_i = before – after.
-
-d
-ˉ
-,
-s
-d
-d
-ˉ
- ,s 
-d
-​
- .
-
-t
-=
-d
-ˉ
-s
-d
-/
-n
-t= 
-s 
-d
-​
- / 
-n
-​
- 
-d
-ˉ
- 
-​
- .
-
-df = n–1.
-
-Independent two-sample t-test
-
-H0: μ1 = μ2.
-
-t
-=
-x
-ˉ
-1
-–
-x
-ˉ
-2
-s
-1
-2
-n
-1
-+
-s
-2
-2
-n
-2
-t= 
-n 
-1
-​
- 
-s 
-1
-2
-​
- 
-​
- + 
-n 
-2
-​
- 
-s 
-2
-2
-​
- 
-​
- 
-​
- 
-x
-ˉ
-  
-1
-​
- – 
-x
-ˉ
-  
-2
-​
- 
-​
- .
-
-df ≈ n1+n2–2 (pooled) or Welch’s df if variances unequal.
-
-📘 Exercise 04 – Answers.pdf
-Standard Deviation
-
-Mean = sum/n.
-
-Variance = sum of (x – mean)² / n (for population) or /(n–1) for sample.
-
-SD = √variance.
-
-Normal Approximation to Binomial
-
-μ = np, σ = √(np(1–p)).
-
-Use continuity correction: P(X < k) → P(X ≤ k–0.5).
-
-z = (x_corrected – μ)/σ, use z-table.
-
-At least probability with binomial
-
-P(X ≥ k) = 1 – P(X ≤ k–1) or sum individual binomial probabilities.
-
-Normal approx with continuity correction: P(X ≥ 44.5) etc.
-
-📘 Exercise 03 – Answers.pdf
-Permutation
-
-P
-(
-n
-,
-r
-)
-=
-n
-!
-/
-(
-n
-–
-r
-)
-!
-P(n,r)=n!/(n–r)!.
-
-Combination
-
-C
-(
-n
-,
-r
-)
-=
-n
-!
-/
-[
-r
-!
-(
-n
-–
-r
-)
-!
-]
-C(n,r)=n!/[r!(n–r)!].
-
-Hypergeometric Probability
-
-P
-(
-X
-=
-x
-)
-=
-(
-K
-x
-)
-(
-N
-−
-K
-n
-−
-x
-)
-(
-N
-n
-)
-P(X=x)= 
-( 
-n
-N
-​
- )
-( 
-x
-K
-​
- )( 
-n−x
-N−K
-​
- )
-​
- .
-
-Independent Events Probability
-
-P(A and B) = P(A) × P(B).
-
-Binomial Probability
-
-P
-(
-X
-=
-x
-)
-=
-(
-n
-x
-)
-p
-x
-(
-1
-−
-p
-)
-n
-−
-x
-P(X=x)=( 
-x
-n
-​
- )p 
-x
- (1−p) 
-n−x
- .
-
-Binomial “at least” probability
-
-Sum from x=k to n of binomial probabilities.
-
-Poisson Probability
-
-P
-(
-X
-=
-x
-)
-=
-e
-−
-μ
-μ
-x
-x
-!
-P(X=x)= 
-x!
-e 
-−μ
- μ 
-x
- 
-​
- .
-
-For “fewer than 4”: sum x=0 to 3.
+### 3. Hypergeometric Probability for Balls
+**N=25, K=10 red, n=5, want x=3 red**
+
+- \( P = \frac{C(10,3) × C(15,2)}{C(25,5)} ≈ 0.2372 \)
+
+---
+
+### 4. Independent Events: Card and Coin
+- P(King) = 4/52 = 1/13
+- P(Tail) = 1/2
+- P(King and Tail) = (1/13) × (1/2) = 1/26
+
+---
+
+### 5. Binomial Probability: Coin Flips
+**n=5, p=0.5, want x=3 heads**
+
+- \( P = C(5,3) × 0.5^5 = 10 × 1/32 = 10/32 = 5/16 \)
+
+---
+
+### 6. Binomial Probability: Basketball Free Throws
+**n=15, p=0.8, want x ≥ 12**
+
+- Compute P(12), P(13), P(14), P(15) and sum ≈ 0.635
+
+---
+
+### 7. Poisson Probability: Lions on Safari
+**μ=5, want P(X < 4)**
+
+- \( P = P(0) + P(1) + P(2) + P(3) \) using Poisson formula.
+- Result ≈ 0.2650
+
+---
+
+Good luck on your exam! 🍀
