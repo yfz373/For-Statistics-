@@ -1,7 +1,3 @@
-I understand — you don't want the messy math formatting in your README. I’ll keep the explanations clean and avoid poorly formatted LaTeX.
-
-Here’s the cleaned version for that specific part and the full set again in clean, readable GitHub Markdown format:
-
 ---
 
 # 📘 Statistics Exercises – Step-by-Step Solutions
